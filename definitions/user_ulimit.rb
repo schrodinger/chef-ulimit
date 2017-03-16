@@ -21,7 +21,7 @@ define :user_ulimit, :filehandle_limit => nil, :process_limit => nil, :memory_li
               end
   end
 
-  template "/etc/security/limits.d/#{filename}.conf" do
+  template "#{node['ulimit']['security_limits_directory']}/#{filename}.conf" do
     source "ulimit.erb"
     cookbook "ulimit"
     owner "root"
